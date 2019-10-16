@@ -8,7 +8,7 @@ $(document).ready(() => {
 
 
 function getMovies(searchText) {
-    axios.get(`http://www.omdbapi.com/?s=${searchText}&apikey=b456e606`)
+    axios.get(`https://www.omdbapi.com/?s=${searchText}&apikey=b456e606`)
         .then((response) => {
             console.log(response);
             let movies = response.data.Search;
@@ -42,12 +42,12 @@ function movieSelected(id) {
 function getMovie() {
     let movieId = sessionStorage.getItem('movieId');
 
-    axios.get(`http://www.omdbapi.com/?i=${movieId}&apikey=b456e606`)
-    .then((response) => {
-        console.log(response);
+    axios.get(`https://www.omdbapi.com/?i=${movieId}&apikey=b456e606`)
+        .then((response) => {
+            console.log(response);
 
-        let movie = response.data;
-        let output = `
+            let movie = response.data;
+            let output = `
             <div class="row">
                 <div class="col-md-4"> 
                 <img src="${movie.Poster}" class="thumbnail">
@@ -78,10 +78,10 @@ function getMovie() {
             </div>
         `;
 
-        $('#movie').html(output);
+            $('#movie').html(output);
 
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 }
